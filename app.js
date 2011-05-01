@@ -1,4 +1,4 @@
-(function() {
+define(function(require, exports, module) {
 
     var ace = require("ace/ace");
     var CoffescriptMode = require("ace/mode/coffee").Mode;
@@ -29,4 +29,4 @@
         viewer.renderer.scrollToY(top);
     }
     
-})();
+});
