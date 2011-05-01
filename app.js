@@ -1,7 +1,7 @@
 define(function(require, exports, module) {
 
     var ace = require("ace/ace");
-    var CoffescriptMode = require("ace/mode/coffee").Mode;
+    var CoffescriptMode = require("jsconf/coffee").Mode;
     var JsMode = require("ace/mode/javascript").Mode;
     var Theme = require("ace/theme/twilight");
     
