@@ -14,4 +14,19 @@
     viewer.setReadOnly(true);
     viewer.getSession().setMode(new JsMode());
     
+    editor.getSession().on("change", update);
+    update();
+        
+    function update() {
+        try {
+            var js = CoffeeScript.compile(editor.getSession().getValue());
+        } catch (e) {
+            return;
+        }
+        
+        var top = viewer.renderer.getScrollTop();
+        viewer.getSession().setValue(js);
+        viewer.renderer.scrollToY(top);
+    }
+    
 })();
