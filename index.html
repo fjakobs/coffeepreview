@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Coffescript live compile</title>
+        <link rel="stylesheet" href="styles.css" type="text/css" charset="utf-8">
+    </head>
+    
+    <body>
+    </body>
+    
+    <div id="left">
+        <h2>Coffescript</h2>
+        <div id="coffeeedit"># Assignment:
+number   = 42
+opposite = true
+
+# Conditions:
+number = -42 if opposite
+
+# Functions:
+square = (x) -> x * x
+
+# Arrays:
+list = [1, 2, 3, 4, 5]
+
+# Objects:
+math =
+  root:   Math.sqrt
+  square: square
+  cube:   (x) -> x * square x
+
+# Splats:
+race = (winner, runners...) ->
+  print winner, runners
+
+# Existence:
+alert "I knew it!" if elvis?
+
+# Array comprehensions:
+cubes = (math.cube num for num in list)</div>
+    </div>
+
+    <div id="right">
+        <h2>JavaScript</h2>
+        <div id="jsedit"></div>
+    </div>
+    
+    <script src="support/ace/build/src/ace-uncompressed.js"></script>
+    <script src="app.js"></script>
+</html>

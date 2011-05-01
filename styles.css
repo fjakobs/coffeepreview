@@ -1,0 +1,34 @@
+body {
+    margin: 0px;
+    background: black;
+    color: #E8E8E8;
+    font-family: Arial;
+}
+
+h2 {
+    padding: 0 10px;
+}
+
+#coffeeedit, #jsedit {
+    position: absolute;
+    background: white;
+    width: 100%;
+    top: 60px;
+    bottom: 0px;
+}
+
+#left {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 50%;
+}
+
+#right {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 50%;
+    right: 0px;
+}
