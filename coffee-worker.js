@@ -17,7 +17,14 @@ oop.inherits(CoffeeScriptWorker, Mirror);
 (function() {
     
     this.onUpdate = function() {
-        console.log("worker update")
+        var value = this.doc.getValue();
+        var js;
+        try {
+            js = CoffeeScript.compile(value);
+        } catch(e) {
+            return;
+        }
+        this.sender.emit("js", js);
     }
     
 }).call(CoffeeScriptWorker.prototype);

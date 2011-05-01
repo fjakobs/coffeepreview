@@ -22,6 +22,10 @@ CoffeeModeExt.prototype.createWorker = function(session) {
         };
         worker.emit("change", e);
     });
+    
+    worker.on("js", function(e) {
+        session._dispatchEvent("js", e);
+    });    
 }
 
 exports.Mode = CoffeeModeExt;

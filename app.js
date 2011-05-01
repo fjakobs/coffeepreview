@@ -14,19 +14,10 @@ define(function(require, exports, module) {
     viewer.setReadOnly(true);
     viewer.getSession().setMode(new JsMode());
     
-    editor.getSession().on("change", update);
-    update();
-        
-    function update() {
-        try {
-            var js = CoffeeScript.compile(editor.getSession().getValue());
-        } catch (e) {
-            return;
-        }
-        
+    editor.getSession().on("js", function(e) {
         var top = viewer.renderer.getScrollTop();
-        viewer.getSession().setValue(js);
+        viewer.getSession().setValue(e.data);
         viewer.renderer.scrollToY(top);
-    }
+    });
     
 });
