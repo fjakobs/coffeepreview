@@ -23,7 +23,12 @@ CoffeeModeExt.prototype.createWorker = function(session) {
         worker.emit("change", e);
     });
     
+    worker.on("error", function(e) {
+        session.setAnnotations([e.data]);
+    });
+    
     worker.on("js", function(e) {
+        session.clearAnnotations();
         session._dispatchEvent("js", e);
     });    
 }

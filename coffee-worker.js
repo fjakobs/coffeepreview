@@ -22,6 +22,15 @@ oop.inherits(CoffeeScriptWorker, Mirror);
         try {
             js = CoffeeScript.compile(value);
         } catch(e) {
+            var m = e.message.match(/Parse error on line (\d+): (.*)/);
+            if (m) {
+                this.sender.emit("error", {
+                    row: parseInt(m[1]) - 1,
+                    column: null,
+                    text: m[2],
+                    type: "error"
+                });
+            }
             return;
         }
         this.sender.emit("js", js);
